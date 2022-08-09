@@ -69,7 +69,7 @@ class MinSnap:
 		for i in range(n):
 			x, y, z = [int(x) for x in input(f"Enter x, y, z for point {i+1} :").split()]
 			vector.append([x, y, z])
-		self.V_CONST = int(input("Enter the uniform speed of the drone\n"))
+		self.V_CONST = int(input("Enter the uniform speed of the point\n"))
 		return n, vector
 
 	def lenBwPoints(self):
@@ -185,10 +185,12 @@ class MinSnap:
 		fig = plt.figure()
 		ax = plt.axes(projection="3d")
 		ax.scatter([row[0] for row in self.waypoints], [row[1] for row in self.waypoints], [row[2] for row in self.waypoints], marker = 'o')
+		ax.set_xlabel('X')
+		ax.set_ylabel('Y')
+		ax.set_zlabel('Z')
 
 		for i in range(0, self.m):
 			t = np.linspace(self.time_stamps[i], self.time_stamps[i + 1], 100)
-			print(t)
 
 			x = []
 			y = []
